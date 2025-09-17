@@ -51,7 +51,7 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        return view('items.edit', compact('item'));
     }
 
     /**
@@ -59,7 +59,13 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        $request->validate([
+            'item' => 'required|max:255',
+        ]);
+
+        $item->update($request->only('item'));
+
+        return redirect()->route('items.show', $item);
     }
 
     /**
