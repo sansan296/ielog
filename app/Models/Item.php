@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Goods extends Model
+class Item extends Model
 {
-    /** @use HasFactory<\Database\Factories\GoodsFactory> */
+    /** @use HasFactory<\Database\Factories\ItemFactory> */
     use HasFactory;
 
-    protected $fillable = ['goods'];    /**ユーザからの入力を受け付ける */
+    protected $fillable = ['item'];
 
     public function user()
     {

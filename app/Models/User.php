@@ -46,8 +46,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function goods()
+    public function items()
     {
-        return $this->hasMany(Goods::class);
+        return $this->hasMany(Item::class);
     }
 }

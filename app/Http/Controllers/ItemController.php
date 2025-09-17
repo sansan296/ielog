@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Goods;
+use App\Models\Item;
 use Illuminate\Http\Request;
 
-class GoodsController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $goods = Goods::with('user')->latest()->get();
-        return view('goods.index', compact('goods'));
+        //
     }
 
     /**
@@ -21,7 +20,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        return view('goods.create');
+        //
     }
 
     /**
@@ -29,27 +28,21 @@ class GoodsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'goods' => 'required|max:255',
-        ]);
-
-        $request->user()->goods()->create($request->only('goods'));
-
-        return redirect()->route('goods.index');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Goods $goods)
+    public function show(Item $item)
     {
-        return view('goods.show', compact('goods'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Goods $goods)
+    public function edit(Item $item)
     {
         //
     }
@@ -57,7 +50,7 @@ class GoodsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Goods $goods)
+    public function update(Request $request, Item $item)
     {
         //
     }
@@ -65,7 +58,7 @@ class GoodsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Goods $goods)
+    public function destroy(Item $item)
     {
         //
     }
