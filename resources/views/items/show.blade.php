@@ -27,6 +27,18 @@
           </div>
           @endif
         </div>
+
+        <div class="mt-4">
+            <p class="text-gray-600 dark:text-gray-400 ml-4">Memo {{ $item->memos->count() }}</p>
+            <a href="{{ route('items.memos.create', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">メモを追加</a>
+          </div>
+          
+          <div class="mt-4">
+            @foreach ($item->memos as $memo)
+            <p>{{ $memo->memo }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $memo->user->name }} {{ $memo->created_at->format('Y-m-d H:i') }}</span></p>
+            @endforeach
+          </div>
+
       </div>
     </div>
   </div>

@@ -16,4 +16,9 @@ class Item extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function memos()
+    {
+        return $this->hasMany(Memo::class)->orderBy('created_at', 'desc');
+    }
 }

@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Item::class);
     }
+
+    public function memos()
+    {
+        return $this->hasMany(Memo::class);
+    }
 }
