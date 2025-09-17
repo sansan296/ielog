@@ -29,7 +29,13 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'item' => 'required|max:255',
+        ]);
+
+        $request->user()->items()->create($request->only('item'));
+
+        return redirect()->route('items.index');
     }
 
     /**
@@ -37,7 +43,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view('items.show', compact('item'));
     }
 
     /**
