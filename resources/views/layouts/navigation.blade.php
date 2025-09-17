@@ -16,11 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('goods.index')" :active="request()->routeIs('goods.index')">
+                    <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                         {{ __('在庫一覧') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('goods.create')" :active="request()->routeIs('goods.create')">
+                    <x-nav-link :href="route('items.create')" :active="request()->routeIs('items.create')">
                         {{ __('追加') }}
                     </x-nav-link>
                 </div>
@@ -79,11 +79,11 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('goods.index')" :active="request()->routeIs('goods.index')">
+            <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                 {{ __('在庫一覧') }}
             </x-responsive-nav-link>
             
-            <x-responsive-nav-link :href="route('goods.create')" :active="request()->routeIs('goods.create')">
+            <x-responsive-nav-link :href="route('items.create')" :active="request()->routeIs('items.create')">
                 {{ __('追加') }}
             </x-responsive-nav-link>
         </div>

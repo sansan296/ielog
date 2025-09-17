@@ -12,7 +12,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::with('user')->latest()->get();
+        return view('items.index', compact('items'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('items.create');
     }
 
     /**
