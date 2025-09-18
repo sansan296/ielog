@@ -1,6 +1,6 @@
 <x-app-layout>
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+    <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
       {{ __('在庫一覧') }}
     </h2>
   </x-slot>
@@ -8,9 +8,9 @@
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 text-gray-900 dark:text-gray-100">
+        <div class="p-6 text-xl text-gray-900 w-1/3 p-4 dark:text-gray-100">
           @foreach ($items as $item)
-          <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <div class="mb-4 p-4 bg-orange-50 dark:bg-gray-700 rounded-lg">
             <p class="text-gray-800 dark:text-gray-300">{{ $item->item }}</p>
             <p class="text-gray-600 dark:text-gray-400 text-sm">追加した人: {{ $item->user->name }}</p>
             <a href="{{ route('items.show', $item) }}" class="text-blue-500 hover:text-blue-700">詳細</a>
