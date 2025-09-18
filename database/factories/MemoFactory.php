@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Item;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,9 @@ class MemoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'memo' => fake()->sentence,
+            'user_id' => User::factory(),
+            'item_id' => Item::factory(),
         ];
     }
 }
