@@ -35,7 +35,9 @@
           
           <div class="mt-4">
             @foreach ($item->memos as $memo)
-            <p>{{ $memo->memo }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $memo->user->name }} {{ $memo->created_at->format('Y-m-d H:i') }}</span></p>
+            <a href="{{ route('items.memos.show', [$item, $memo]) }}">
+              <p>{{ $memo->memo }} <span class="text-gray-600 dark:text-gray-400 text-sm">{{ $memo->user->name }} {{ $memo->created_at->format('Y-m-d H:i') }}</span></p>
+            </a>
             @endforeach
           </div>
 
