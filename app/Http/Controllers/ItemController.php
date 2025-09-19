@@ -10,9 +10,20 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $items = Item::with('user')->latest()->get();
+
+        $query = Item::query()->with('user');
+
+        // キーワードがあれば絞り込み
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where('item', 'like', "%{$keyword}%");
+        }
+
+        $items = $query->paginate(10);
+
         return view('items.index', compact('items'));
     }
 

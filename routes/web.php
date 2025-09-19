@@ -21,4 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('items.memos', MemoController::class);
 });
 
+Route::get('/items',[ItemController::class, 'index'])->name('items.index');
+
 require __DIR__.'/auth.php';
