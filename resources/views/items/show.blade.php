@@ -29,7 +29,7 @@
         </div>
 
         <div class="mt-4">
-            <p class="text-gray-600 dark:text-gray-400 ml-4">Memo {{ $item->memos->count() }}</p>
+            <p class="text-gray-600 dark:text-gray-400 ml-4">メモ {{ $item->memos->count() }}</p>
             <a href="{{ route('items.memos.create', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">メモを追加</a>
           </div>
           

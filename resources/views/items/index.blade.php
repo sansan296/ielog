@@ -1,13 +1,13 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
-      {{ __('冷蔵庫') }}
+      {{ __('在庫一覧') }}
     </h2>
   </x-slot>
 
   <div class="py-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
     
-    <!-- 🔍 検索フォーム -->
+    <!-- 検索フォーム -->
     <form method="GET" action="{{ route('items.index') }}" class="mb-6">
       <input type="text" name="keyword" value="{{ request('keyword') }}"
              placeholder="商品名"
@@ -20,7 +20,7 @@
 
     <!-- 一覧 -->
     <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
-      <!-- 👇 grid にする -->
+      
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
           <div class="p-4 bg-red-50 dark:bg-gray-700 rounded-lg shadow">
