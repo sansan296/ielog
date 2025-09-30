@@ -19,7 +19,7 @@ class ItemSeeder extends Seeder
 
     for ($i = 0; $i < 20; $i++) {
       Item::factory()->create([
-        'Item' => "{$keyword}",
+        'item' => "{$keyword}",
         'created_at' => $now->copy()->subSeconds(100 - $i),
         'updated_at' => $now->copy()->subSeconds(100 - $i),
       ]);
