@@ -11,6 +11,8 @@
         <div class="p-6 text-gray-900 dark:text-gray-100">
           <form method="POST" action="{{ route('items.store') }}">
             @csrf
+
+            <!-- 商品名 -->
             <div class="mb-4">
               <label for="item" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼商品名</label>
               <input type="text" name="item" id="item" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -18,6 +20,34 @@
               <span class="text-red-500 text-xs italic">{{ $message }}</span>
               @enderror
             </div>
+
+            <!-- 賞味期限 -->
+            <div class="mb-4">
+              <label for="expiration date" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼賞味期限</label>
+              <div class="flex apace-x-2">
+                <input type="number" name="expiration_year" placeholder="年" min="2025" max="2100"
+                 class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none foucus:shadow-outline">
+
+                 <input type="number" name="expiration_month" placeholder="月" min="1" max="12"
+                 class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none foucus:shadow-outline">
+
+                 <input type="number" name="expiration_day" placeholder="日" min="1" max="31"
+                 class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none foucus:shadow-outline">
+            </div>
+
+            @error('expiration_year')
+              <span class="text-red-500 text-xs italic">{{ $message }}</span>
+            @enderror
+
+            @error('expiration_month')
+              <span class="text-red-500 text-xs italic">{{ $message }}</span>
+            @enderror
+
+            @error('expiration_day')
+              <span class="text-red-500 text-xs italic">{{ $message }}</span>
+            @enderror
+            </div>
+
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">追加する</button>
           </form>
         </div>
