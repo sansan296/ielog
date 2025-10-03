@@ -46,6 +46,7 @@ class ItemController extends Controller
         $item = new Item();
         $item->item = $request->item;
 
+
         if($request->filled(['expiration_year', 'expiration_month', 'expiration_day',]))
         {
             $item->expiration_date = Carbon::createFromDate(
@@ -59,6 +60,7 @@ class ItemController extends Controller
 
         $item->user_id = auth()->id();
         $item->save();
+
 
         $request->validate([
             'item' => 'required|max:255',

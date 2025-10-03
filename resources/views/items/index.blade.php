@@ -25,7 +25,24 @@
         @foreach ($items as $item)
           <div class="p-4 bg-red-50 dark:bg-gray-700 rounded-lg shadow">
             <p class="text-gray-800 dark:text-gray-300">{{ $item->item }}</p><p>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">追加した人: {{ $item->user->name }}</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">登録者: {{ $item->user->name }}</p>
+            
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              賞味期限: 
+              @if ($item->expiration_date)
+                @if ($item->expiration_date->isPast())
+                  <span class="text-red-500 font-bold">
+                    {{ $item->expiration_date->format('Y年m月d日') }}（期限切れ）
+                  </span>
+                @else
+                  {{ $item->expiration_date->format('Y年m月d日') }}
+                  （あと {{ now()->diffInDays($item->expiration_date) }} 日）
+                @endif
+              @else
+                なし
+              @endif
+            </p>
+            
             <a href="{{ route('items.show', $item) }}" class="text-blue-500 hover:text-blue-700">詳細</a>
           </div>
         @endforeach
