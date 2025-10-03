@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ItemController extends Controller
 {
@@ -15,6 +16,8 @@ class ItemController extends Controller
         $items = Item::with('user')->latest()->get();
 
         $query = Item::query()->with('user');
+
+        $items = Item::orderBy('expiration_date', 'asc')->get();
 
         // キーワードがあれば絞り込み
         if ($request->filled('keyword')) {
@@ -40,6 +43,23 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
+        $item = new Item();
+        $item->item = $request->item;
+
+        if($request->filled(['expiration_year', 'expiration_month', 'expiration_day',]))
+        {
+            $item->expiration_date = Carbon::createFromDate(
+                $request->expiration_year,
+                $request->expiration_month,
+                $request->expiration_day,
+            );
+        } else {
+            $item->expiration_date = null;
+        }
+
+        $item->user_id = auth()->id();
+        $item->save();
+
         $request->validate([
             'item' => 'required|max:255',
         ]);
