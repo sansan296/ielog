@@ -42,7 +42,12 @@
                 なし
               @endif
             </p>
-            
+
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
+              個数: {{ $item->quantity }}
+            </p>
+
+
             <a href="{{ route('items.show', $item) }}" class="text-blue-500 hover:text-blue-700">詳細</a>
           </div>
         @endforeach

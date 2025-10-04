@@ -11,7 +11,7 @@ class Item extends Model
     /** @use HasFactory<\Database\Factories\ItemFactory> */
     use HasFactory;
 
-    protected $fillable = ['item', 'expiration_date', 'user_id'];
+    protected $fillable = ['item', 'expiration_date', 'user_id', 'quantity',];
 
      protected $casts = [
         'expiration_date' => 'datetime',

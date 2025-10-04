@@ -48,6 +48,14 @@
             @enderror
             </div>
 
+
+            <div class="mb-4">
+              <label for="quantity" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼個数</label>
+                <input type="number" name="quantity" id="quantity" value="1" min="1" required
+                 class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none foucus:shadow-outline">
+            </div>
+
+
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">追加する</button>
           </form>
         </div>
