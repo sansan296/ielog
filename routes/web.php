@@ -10,8 +10,20 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $today = \Carbon\Carbon::today();
+
+    $expiredItems = \App\Models\Item::where('user_id', auth()->id())
+        ->whereDate('expiration_date', '<', $today)
+        ->get();
+
+    $nearExpiredItems = \App\Models\Item::where('user_id', auth()->id())
+        ->whereDate('expiration_date', '>=', $today)
+        ->whereDate('expiration_date', '<=', $today->copy()->addWeek())
+        ->get();
+
+    return view('dashboard', compact('expiredItems', 'nearExpiredItems'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 
