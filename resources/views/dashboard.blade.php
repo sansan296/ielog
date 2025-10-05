@@ -35,7 +35,7 @@
 
         
                                         <td class="px-4 py-2 text-center text-red-500 dark:text-red-400">
-                                            {{ $item->expiration_date }}
+                                            {{ $item->expiration_date->format('Y年m月d日') }}
                                         </td>
 
         
@@ -73,7 +73,7 @@
                                     <tr class="border-b border-gray-200 dark:border-gray-600">
                                         <td class="px-4 py-2 text-center">{{ $item->item }}</td>
                                         <td class="px-4 py-2 text-center text-yellow-500 dark:text-yellow-300">
-                                            {{ $item->expiration_date }}
+                                            {{ $item->expiration_date->format('Y年m月d日') }}
                                         </td>
                                         <td class="px-4 py-2 text-center">{{ $item->quantity }}</td>
                                     </tr>
