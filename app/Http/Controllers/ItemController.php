@@ -12,23 +12,27 @@ class ItemController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        $items = Item::with('user')->latest()->get();
+{
+    $query = Item::query()->with('user');
 
-        $query = Item::query()->with('user');
-
-        $items = Item::orderBy('expiration_date', 'asc')->get();
-
-        // キーワードがあれば絞り込み
-        if ($request->filled('keyword')) {
-            $keyword = $request->input('keyword');
-            $query->where('item', 'like', "%{$keyword}%");
-        }
-
-        $items = $query->paginate(10);
-
-        return view('items.index', compact('items'));
+    // 検索キーワードがある場合
+    if ($keyword = $request->input('keyword')) {
+        $query->where('item', 'like', "%{$keyword}%");
     }
+
+    // 賞味期限のあるものを優先的に並べ、期限切れ・近い順に並べる
+    $items = $query
+        ->orderByRaw("CASE 
+            WHEN expiration_date IS NULL THEN 3
+            WHEN expiration_date < NOW() THEN 1
+            WHEN expiration_date < NOW() + INTERVAL 7 DAY THEN 2
+            ELSE 3 END")
+        ->orderBy('expiration_date', 'asc')
+        ->paginate(12);
+
+    return view('items.index', compact('items'));
+}
+
 
     /**
      * Show the form for creating a new resource.
