@@ -11,11 +11,11 @@
             {{-- 期限切れ --}}
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h3 class="text-lg font-bold mb-4 text-center text-red-600 dark:text-red-400">
+                    <h3 class="text-lg font-bold mb-4  text-red-600 dark:text-red-400">
                         賞味期限切れの商品
                     </h3>
                     @if($expiredItems->isEmpty())
-                        <p class="text-center text-gray-500 dark:text-gray-400">期限切れの商品はありません。</p>
+                        <p class="text-gray-500 dark:text-gray-400">期限切れの商品はありません。</p>
                     @else
                         <table class="w-full border-collapse">
                             <thead>
@@ -54,7 +54,7 @@
             {{-- 期限間近 --}}
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h3 class="text-lg font-bold mb-4 text-center text-yellow-600 dark:text-yellow-400">
+                    <h3 class="text-lg font-bold mb-4  text-yellow-600 dark:text-yellow-400">
                         期限が1週間以内の商品
                     </h3>
                     @if($nearExpiredItems->isEmpty())
