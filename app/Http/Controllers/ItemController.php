@@ -11,16 +11,16 @@ class ItemController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+public function index(Request $request) 
 {
     $query = Item::query()->with('user');
 
-    // 検索キーワードがある場合
+    //キーワードがある場合
     if ($keyword = $request->input('keyword')) {
         $query->where('item', 'like', "%{$keyword}%");
     }
 
-    // 賞味期限のあるものを優先的に並べ、期限切れ・近い順に並べる
+    //並び順（賞味期限が切れている順,近い順）
     $items = $query
         ->orderByRaw("CASE 
             WHEN expiration_date IS NULL THEN 3
@@ -30,8 +30,13 @@ class ItemController extends Controller
         ->orderBy('expiration_date', 'asc')
         ->paginate(12);
 
-    return view('items.index', compact('items'));
+    // 合計個数（現在ページの分ではなく全検索結果の合計）
+    $totalQuantity = (clone $query)->sum('quantity');
+
+    // Bladeに渡す
+    return view('items.index', compact('items', 'totalQuantity'));
 }
+
 
 
     /**

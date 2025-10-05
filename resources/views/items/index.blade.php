@@ -18,13 +18,24 @@
          検索
         </button>
       </div>
+    
 
   <!-- 在庫で作れる料理を表示ボタン -->
   <a href="{{ route('recipes.index') }}" 
      class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
      在庫で作れる料理を表示
   </a>
-</form>
+  </form>
+
+    
+      @if(request('keyword'))
+        <div class="bg-blue-50 border border-blue-200 p-3 rounded-lg mb-4 text-blue-800">
+            検索ワード：<span class="font-semibold">「{{ request('keyword') }}」</span>　
+              <span class="font-semibold">{{ $items->total() }}</span> 件ヒット　
+                在庫合計：<span class="font-semibold">{{ $totalQuantity }}</span> 個
+        </div>
+      @endif
+
 
 
     <!-- 一覧 -->
