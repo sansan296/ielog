@@ -1,6 +1,6 @@
 <x-app-layout>
   <x-slot name="header">
-    <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+    <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
       {{ __('在庫一覧') }}
     </h2>
   </x-slot>
@@ -22,7 +22,7 @@
 
   <!-- 在庫で作れる料理を表示ボタン -->
   <a href="{{ route('recipes.index') }}" 
-     class="px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+     class="px-6 py-2 bg-[#1F8E98] text-white font-semibold rounded-lg hover:bg-[#016069] transition">
      在庫で作れる料理を表示
   </a>
   </form>
@@ -39,11 +39,11 @@
 
 
     <!-- 一覧 -->
-    <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg p-6">
+    <div class="bg-[#0D5D8D] overflow-hidden shadow-sm sm:rounded-lg p-6">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
-          <div class="p-4 bg-red-50 dark:bg-gray-700 rounded-lg shadow">
+          <div class="p-4 bg-white rounded-lg shadow">
             <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">
