@@ -4,6 +4,7 @@ use App\Http\Controllers\MemoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,7 +25,7 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('expiredItems', 'nearExpiredItems'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 
 
 Route::middleware('auth')->group(function () {
