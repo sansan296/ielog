@@ -39,7 +39,7 @@
 
 
     <!-- 一覧 -->
-    <div class="bg-[#E9544C] overflow-hidden shadow-sm sm:rounded-lg p-6">
+    <div class="bg-[#FFA584] overflow-hidden shadow-sm sm:rounded-lg p-6">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
@@ -47,7 +47,7 @@
             <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">
-              賞味期限: 
+              賞味期限:　
               @if ($item->expiration_date)
                 @if ($item->expiration_date->isPast())
                   <span class="text-[#EE2E48] font-bold">
@@ -64,7 +64,7 @@
             </p>
 
             <p class="text-gray-800 text-base">
-              個数: {{ $item->quantity }}
+              個数:　{{ $item->quantity }}
             </p>
 
             <p class="text-gray-600 text-sm">登録者: {{ $item->user->name }}</p>

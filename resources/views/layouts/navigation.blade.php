@@ -25,7 +25,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('purchase_lists.index')" :active="request()->routeIs('purchase_lists.index')">
-                        {{ __('購入品リスト') }}
+                        {{ __('購入予定品') }}
                     </x-nav-link>
                 </div>
             </div>

@@ -9,17 +9,17 @@
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8 space-y-8">
 
             {{-- 期限切れ --}}
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[#FFF0E6] overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-bold mb-4  text-[#EE2E48]">
                         賞味期限切れの商品
                     </h3>
                     @if($expiredItems->isEmpty())
-                        <p class="text-gray-500 dark:text-gray-400">期限切れの商品はありません。</p>
+                        <p class="text-gray-500">期限切れの商品はありません。</p>
                     @else
                         <table class="w-full border-collapse">
                             <thead>
-                                <tr class="bg-gray-100 dark:bg-gray-700">
+                                <tr class="bg-gray-100">
                                     <th class="px-4 py-2 text-center">商品名</th>
                                     <th class="px-4 py-2 text-center">賞味期限</th>
                                     <th class="px-4 py-2 text-center">個数</th>
@@ -27,7 +27,7 @@
                             </thead>
                             <tbody>
                                 @foreach($expiredItems as $item)
-                                    <tr class="border-b border-gray-200 dark:border-gray-600">
+                                    <tr class="border-b border-gray-200">
                                    
                                         <td class="px-4 py-2 text-center text-[#EE2E48]">
                                             {{ $item->item }}
@@ -52,7 +52,7 @@
             </div>
 
             {{-- 期限間近 --}}
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[#FFF0E6] dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-bold mb-4  text-[#2C5BA5]">
                         期限が1週間以内の商品
