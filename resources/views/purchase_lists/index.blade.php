@@ -35,7 +35,7 @@
             <tr class="border-b">
               <th>商品名</th>
               <th>個数</th>
-              <th>購入日</th>
+              <th>購入予定日</th>
               <th>追加</th>
             </tr>
           </thead>

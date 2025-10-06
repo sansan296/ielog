@@ -40,13 +40,6 @@
               class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       </div>
 
-            <!-- 購入日 -->
-          <div class="mb-4">
-            <label for="purchase_date" class="block text-gray-800 text-sm font-bold mb-2">▼購入日　(購入品リストから追加するの場合のみ入力)</label>
-            <input type="date" name="purchase_date" id="purchase_date" value="{{ old('purchase_date', $purchase_date ?? '') }}"
-              class="shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            </div>
-
             <!-- 賞味期限-->
             <div class="mb-4">
               <label class="block text-gray-800 text-sm font-bold mb-2">▼賞味期限</label>
