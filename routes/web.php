@@ -28,20 +28,20 @@ Route::get('/dashboard', function () {
 
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 
-
 Route::middleware('auth')->group(function () {
-    Route::get('items', [ItemController::class, 'index'])->name('items.index');
+    // 在庫
+    Route::resource('items', ItemController::class);
+    Route::resource('items.memos', MemoController::class);
+
+    // プロフィール
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('items', ItemController::class);
-    Route::resource('items.memos', MemoController::class);
+
+    // 購入リスト
+    Route::get('/purchase-lists', [PurchaseListController::class, 'index'])->name('purchase_lists.index');
+    Route::post('/purchase-lists', [PurchaseListController::class, 'store'])->name('purchase_lists.store');
+    Route::delete('/purchase-lists/{purchaseList}', [PurchaseListController::class, 'destroy'])->name('purchase_lists.destroy');
 });
-
-Route::get('/items',[ItemController::class, 'index'])->name('items.index');
-
-Route::get('/purchase-lists', [PurchaseListController::class, 'index'])->name('purchase_lists.index');
-Route::post('/purchase-lists', [PurchaseListController::class, 'store'])->name('purchase_lists.store');
-Route::delete('/purchase-lists/{purchaseList}', [PurchaseListController::class, 'destroy'])->name('purchase_lists.destroy');
 
 require __DIR__.'/auth.php';

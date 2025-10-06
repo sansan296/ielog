@@ -42,10 +42,16 @@ public function index(Request $request)
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('items.create');
+        $item = $request->input('item');
+        $quantity = $request->input('quantity', 1);
+        $purchase_date = $request->input('purchase_date');
+
+        return view('items.create', compact('item', 'quantity', 'purchase_date'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.

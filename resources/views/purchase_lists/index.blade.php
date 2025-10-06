@@ -35,33 +35,40 @@
             <tr class="border-b">
               <th>商品名</th>
               <th>個数</th>
-              <th>購入日</th>
-              <th>操作</th>
+              <th>購入する日</th>
+              <th>追加</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($lists as $list)
-              <tr class="border-b">
-                <td class="py-2">{{ $list->item }}</td>
+
+        @foreach($lists as $list)
+            <tr class="border-b">
+                <td class="py-2">{{ $list->item_name }}</td>
                 <td>{{ $list->quantity ?? '-' }}</td>
-                <td>{{ $list->purchase_date ? \Carbon\Carbon::parse($list->purchase_date)->format('Y年m月d日') : '-' }}</td>
+                <td>{{ $list->purchase_date ?? '-' }}</td>
                 <td>
-                  <div class="flex justify-center space-x-2">
-                    <a href="{{ route('items.create', ['item' => $list->item, 'quantity' => $list->quantity]) }}"
-                       class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">
-                      在庫へ追加
+                <div class="flex justify-center space-x-2">
+                    <!-- 在庫へ追加：URL にクエリで値を渡す -->
+                    <a href="{{ route('items.create', [
+                        'item' => $list->item_name,          // ItemController側で 'item' を期待しているならこのキーに
+                        'quantity' => $list->quantity,
+                'purchase_date' => $list->purchase_date
+            ]) }}"
+                    class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                    在庫へ追加
                     </a>
-                    <form method="POST" action="{{ route('purchase_lists.destroy', $list) }}">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
-                        削除
-                      </button>
+
+                    <!-- 削除 -->
+                    <form method="POST" action="{{ route('purchase_lists.destroy', $list->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">削除</button>
                     </form>
-                  </div>
+                </div>
                 </td>
-              </tr>
+            </tr>
             @endforeach
+
           </tbody>
         </table>
       @endif
