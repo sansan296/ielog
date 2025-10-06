@@ -56,7 +56,7 @@
             </div>
 
 
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">追加する</button>
+            <button type="submit" class="bg-[#4973B5] hover:bg-[#2C5BA5] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">追加する</button>
           </form>
         </div>
       </div>

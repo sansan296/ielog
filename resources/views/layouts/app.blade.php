@@ -26,7 +26,7 @@
                     </div>
                 </header>
             @endisset
-            <div class="min-h-screen bg-[#4286AF]">
+            <div class="min-h-screen bg-white">
 
             <!-- Page Content -->
             <main>

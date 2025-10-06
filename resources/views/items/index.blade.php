@@ -14,7 +14,7 @@
               placeholder="商品名"
               class="border rounded-lg px-3 py-2 w-64">
         <button type="submit"
-                class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                class="ml-2 px-4 py-2 bg-[#4973B5] text-white rounded-lg hover:bg-[#2C5BA5]">
          検索
         </button>
       </div>
@@ -22,7 +22,7 @@
 
   <!-- 在庫で作れる料理を表示ボタン -->
   <a href="{{ route('recipes.index') }}" 
-     class="px-6 py-2 bg-[#1F8E98] text-white font-semibold rounded-lg hover:bg-[#016069] transition">
+     class="px-6 py-2 bg-[#7094CC] text-white font-semibold rounded-lg hover:bg-[#4973B5] transition">
      在庫で作れる料理を表示
   </a>
   </form>
@@ -39,18 +39,18 @@
 
 
     <!-- 一覧 -->
-    <div class="bg-[#0D5D8D] overflow-hidden shadow-sm sm:rounded-lg p-6">
+    <div class="bg-[#E9544C] overflow-hidden shadow-sm sm:rounded-lg p-6">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
-          <div class="p-4 bg-white rounded-lg shadow">
+          <div class="p-4 bg-[#FFF0E6] rounded-lg shadow">
             <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">
               賞味期限: 
               @if ($item->expiration_date)
                 @if ($item->expiration_date->isPast())
-                  <span class="text-red-500 font-bold">
+                  <span class="text-[#EE2E48] font-bold">
                     {{ $item->expiration_date->format('Y/m/d') }}（期限切れ）
                   </span>
                 @else
@@ -71,7 +71,7 @@
 
 
             <a href="{{ route('items.show', $item) }}"
-              class="block text-right text-blue-500 hover:text-blue-700">
+              class="block text-right text-[#4973B5] hover:text-[#2C5BA5]">
                 詳細
             </a>
 

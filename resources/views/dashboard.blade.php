@@ -11,7 +11,7 @@
             {{-- 期限切れ --}}
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h3 class="text-lg font-bold mb-4  text-red-600 dark:text-red-400">
+                    <h3 class="text-lg font-bold mb-4  text-[#EE2E48]">
                         賞味期限切れの商品
                     </h3>
                     @if($expiredItems->isEmpty())
@@ -29,17 +29,17 @@
                                 @foreach($expiredItems as $item)
                                     <tr class="border-b border-gray-200 dark:border-gray-600">
                                    
-                                        <td class="px-4 py-2 text-center text-red-500 dark:text-red-400">
+                                        <td class="px-4 py-2 text-center text-[#EE2E48]">
                                             {{ $item->item }}
                                         </td>
 
         
-                                        <td class="px-4 py-2 text-center text-red-500 dark:text-red-400">
+                                        <td class="px-4 py-2 text-center text-[#EE2E48]">
                                             {{ $item->expiration_date->format('Y/m/d') }}
                                         </td>
 
         
-                                    <td class="px-4 py-2 text-center text-red-500 dark:text-red-400">
+                                    <td class="px-4 py-2 text-center text-[#EE2E48]">
                                             {{ $item->quantity }}
                                     </td>
                                     </tr>
@@ -54,11 +54,11 @@
             {{-- 期限間近 --}}
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h3 class="text-lg font-bold mb-4  text-blue-500">
+                    <h3 class="text-lg font-bold mb-4  text-[#2C5BA5]">
                         期限が1週間以内の商品
                     </h3>
                     @if($nearExpiredItems->isEmpty())
-                        <p class="text-center text-gray-500 dark:text-gray-400">期限間近の商品はありません。</p>
+                        <p class="text-center text-gray-500">期限間近の商品はありません。</p>
                     @else
                         <table class="w-full border-collapse">
                             <thead>
