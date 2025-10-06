@@ -1,6 +1,6 @@
 <x-app-layout> 
   <x-slot name="header">
-    <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+    <h2 class="font-semibold text-2xl text-gray-800 leading-tight text-center">
       {{ __('在庫追加') }}
     </h2>
   </x-slot>
@@ -22,7 +22,7 @@
 
           <!-- 商品名 -->
       <div class="mb-4">
-        <label for="item" class="block text-white text-sm font-bold mb-2">▼商品名</label>
+        <label for="item" class="block text-gray-800 text-sm font-bold mb-2">▼商品名</label>
         <input type="text" name="item" id="item"
               value="{{ old('item', $item ?? request('item')) }}"
               class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -33,7 +33,7 @@
 
           <!-- 個数 -->
       <div class="mb-4">
-        <label for="quantity" class="block text-white text-sm font-bold mb-2">▼個数</label>
+        <label for="quantity" class="block text-gray-800 text-sm font-bold mb-2">▼個数</label>
         <input type="number" name="quantity" id="quantity"
               value="{{ old('quantity', $quantity ?? request('quantity', 1)) }}"
               min="1"
@@ -42,14 +42,14 @@
 
             <!-- 購入日 -->
           <div class="mb-4">
-            <label for="purchase_date" class="block text-white text-sm font-bold mb-2">▼購入日　(購入品リストから追加するの場合のみ入力)</label>
+            <label for="purchase_date" class="block text-gray-800 text-sm font-bold mb-2">▼購入日　(購入品リストから追加するの場合のみ入力)</label>
             <input type="date" name="purchase_date" id="purchase_date" value="{{ old('purchase_date', $purchase_date ?? '') }}"
               class="shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
             <!-- 賞味期限-->
             <div class="mb-4">
-              <label class="block text-white text-sm font-bold mb-2">▼賞味期限</label>
+              <label class="block text-gray-800 text-sm font-bold mb-2">▼賞味期限</label>
               <div class="flex space-x-2">
                 <input type="number" name="expiration_year" placeholder="年" min="2025" max="2100"
                        class="w-1/4 border rounded py-2 px-3 text-gray-700 focus:outline-none">

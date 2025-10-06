@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight text-center">
             {{ __('通知') }}
         </h2>
     </x-slot>
@@ -9,7 +9,7 @@
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8 space-y-8">
 
             {{-- 期限切れ --}}
-            <div class="bg-[#FFF0E6] overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-bold mb-4  text-[#EE2E48]">
                         賞味期限切れの商品
@@ -52,7 +52,7 @@
             </div>
 
             {{-- 期限間近 --}}
-            <div class="bg-[#FFF0E6] dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-bold mb-4  text-[#2C5BA5]">
                         期限が1週間以内の商品

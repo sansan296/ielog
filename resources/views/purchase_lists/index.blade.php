@@ -1,6 +1,6 @@
 <x-app-layout>
   <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
+    <h2 class="font-semibold text-2xl text-gray-800 leading-tight text-center">
       購入予定品
     </h2>
   </x-slot>
@@ -8,7 +8,7 @@
   <div class="py-8 max-w-4xl mx-auto px-4">
 
     <!-- 登録フォーム -->
-    <form method="POST" action="{{ route('purchase_lists.store') }}" class="mb-6 bg-[#FFA584] p-4 rounded-lg shadow">
+    <form method="POST" action="{{ route('purchase_lists.store') }}" class="mb-6 bg-[#FFF0E6] p-4 rounded-lg shadow">
       @csrf
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <input type="text" name="item" placeholder="商品名" required
@@ -26,9 +26,9 @@
     </form>
 
     <!-- リスト一覧 -->
-    <div class="bg-[#FFF0E6] p-4 rounded-lg shadow">
+    <div class="bg-white p-4 rounded-lg shadow">
       @if($lists->isEmpty())
-        <p class="text-center text-white">購入予定のものはありません。</p>
+        <p class="text-center text-gray-800">購入予定のものはありません。</p>
       @else
         <table class="w-full text-center">
           <thead>
