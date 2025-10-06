@@ -25,7 +25,7 @@
         <label for="item" class="block text-gray-800 text-sm font-bold mb-2">▼商品名</label>
         <input type="text" name="item" id="item"
               value="{{ old('item', $item ?? request('item')) }}"
-              class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              class="w-1/4 shadow appearance-none border rounded-lg py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         @error('item')
           <span class="text-red-500 text-xs italic">{{ $message }}</span>
         @enderror
@@ -37,7 +37,7 @@
         <input type="number" name="quantity" id="quantity"
               value="{{ old('quantity', $quantity ?? request('quantity', 1)) }}"
               min="1"
-              class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              class="w-1/4 shadow appearance-none border rounded-lg py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       </div>
 
             <!-- 賞味期限-->
@@ -45,11 +45,11 @@
               <label class="block text-gray-800 text-sm font-bold mb-2">▼賞味期限</label>
               <div class="flex space-x-2">
                 <input type="number" name="expiration_year" placeholder="年" min="2025" max="2100"
-                       class="w-1/4 border rounded py-2 px-3 text-gray-700 focus:outline-none">
+                       class="w-1/4 border rounded-lg py-2 px-3 text-gray-700 focus:outline-none">
                 <input type="number" name="expiration_month" placeholder="月" min="1" max="12"
-                       class="w-1/4 border rounded py-2 px-3 text-gray-700 focus:outline-none">
+                       class="w-1/4 border rounded-lg py-2 px-3 text-gray-700 focus:outline-none">
                 <input type="number" name="expiration_day" placeholder="日" min="1" max="31"
-                       class="w-1/4 border rounded py-2 px-3 text-gray-700 focus:outline-none">
+                       class="w-1/4 border rounded-lg py-2 px-3 text-gray-700 focus:outline-none">
               </div>
             </div>
 
