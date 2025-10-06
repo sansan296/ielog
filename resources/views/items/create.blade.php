@@ -20,15 +20,25 @@
           <form method="POST" action="{{ route('items.store') }}">
             @csrf
 
-            <!-- 商品名 -->
-          <div class="mb-4">
-            <label for="item" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼商品名</label>
-            <input type="text" name="item" id="item" value="{{ old('item', $item ?? '') }}"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-              @error('item')
-              <span class="text-red-500 text-xs italic">{{ $message }}</span>
-             @enderror
-          </div>
+          <!-- 商品名 -->
+      <div class="mb-4">
+        <label for="item" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼商品名</label>
+        <input type="text" name="item" id="item"
+              value="{{ old('item', $item ?? request('item')) }}"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        @error('item')
+          <span class="text-red-500 text-xs italic">{{ $message }}</span>
+        @enderror
+      </div>    
+
+          <!-- 個数 -->
+      <div class="mb-4">
+        <label for="quantity" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">▼個数</label>
+        <input type="number" name="quantity" id="quantity"
+              value="{{ old('quantity', $quantity ?? request('quantity', 1)) }}"
+              min="1"
+              class="w-1/4 shadow appearance-none border rounded py-2 px-3 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+      </div>
 
             <!-- 購入日 -->
           <div class="mb-4">

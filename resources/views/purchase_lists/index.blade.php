@@ -35,7 +35,7 @@
             <tr class="border-b">
               <th>商品名</th>
               <th>個数</th>
-              <th>購入する日</th>
+              <th>購入日</th>
               <th>追加</th>
             </tr>
           </thead>
@@ -43,18 +43,18 @@
 
         @foreach($lists as $list)
             <tr class="border-b">
-                <td class="py-2">{{ $list->item_name }}</td>
+                <td class="py-2">{{ $list->item }}</td>
                 <td>{{ $list->quantity ?? '-' }}</td>
                 <td>{{ $list->purchase_date ?? '-' }}</td>
                 <td>
                 <div class="flex justify-center space-x-2">
                     <!-- 在庫へ追加：URL にクエリで値を渡す -->
                     <a href="{{ route('items.create', [
-                        'item' => $list->item_name,          // ItemController側で 'item' を期待しているならこのキーに
+                        'item' => $list->item,
                         'quantity' => $list->quantity,
                 'purchase_date' => $list->purchase_date
             ]) }}"
-                    class="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">
+                    class="px-3 py-1 bg-[#7094CC] text-white rounded hover:bg-[#4973B5]">
                     在庫へ追加
                     </a>
 
@@ -62,7 +62,7 @@
                     <form method="POST" action="{{ route('purchase_lists.destroy', $list->id) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">削除</button>
+                    <button type="submit" class="px-3 py-1 bg-[#EE2E48] text-white rounded hover:bg-[#D52B3F]">削除</button>
                     </form>
                 </div>
                 </td>
