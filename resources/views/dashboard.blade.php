@@ -84,6 +84,44 @@
                 </div>
             </div>
 
+        {{-- メモ一覧 --}}
+        <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-3 text-blue-600">メモ一覧</h3>
+
+            @if($memos->isEmpty())
+                <p class="text-gray-500">メモは登録されていません。</p>
+            @else
+                <ul class="space-y-4">
+                    @foreach($memos as $memo)
+                        <li class="border-b pb-2">
+                            <p class="font-semibold text-gray-800">
+                                商品名：{{ $memo->item->item }}
+                            </p>
+                            <p class="text-gray-600 text-sm">
+                                登録者：{{ $memo->user->name }}
+                            </p>
+                            <p class="block text-center text-gray-800 mt-1">
+                                メモ：{{ $memo->memo }}
+                            </p>
+
+                            {{-- 削除ボタン --}}
+                            <form action="{{ route('items.memos.destroy', [$memo->item_id, $memo->id]) }}" 
+                                  method="POST" 
+                                  class="mt-2 text-right"
+                                  onsubmit="return confirm('メモを削除しますか？');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" 
+                                        class="text-red-500 hover:text-red-700 text-sm">
+                                    削除
+                                </button>
+                            </form>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+            </div>
+
         </div>
     </div>
 </x-app-layout>

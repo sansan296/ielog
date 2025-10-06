@@ -23,8 +23,17 @@ Route::get('/dashboard', function () {
         ->whereDate('expiration_date', '<=', $today->copy()->addWeek())
         ->get();
 
-    return view('dashboard', compact('expiredItems', 'nearExpiredItems'));
+    //ユーザーのメモ取得
+    $memos = \App\Models\Memo::with('item', 'user')
+        ->whereHas('item', function ($query) {
+            $query->where('user_id', auth()->id());
+        })
+        ->latest()
+        ->get();
+
+    return view('dashboard', compact('expiredItems', 'nearExpiredItems', 'memos'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 
