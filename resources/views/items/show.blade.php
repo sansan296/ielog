@@ -36,20 +36,19 @@
             </p>
 
             <p class="text-gray-600 text-sm">登録者: {{ $item->user->name }}</p>
-          @if (auth()->id() == $item->user_id)
-      <div class="flex items-center justify-end mt-4 space-x-2">
-          <a href="{{ route('items.edit', $item) }}" 
-            class="text-[#4973B5] hover:text-[#2C5BA5]">編集</a>
 
-          <form action="{{ route('items.destroy', $item) }}" method="POST" 
-                onsubmit="return confirm('削除しますか？');">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="text-[#EE2E48] hover:text-[#D52B3F]">削除</button>
-          </form>
-      </div>
+        <div class="flex items-center justify-end mt-4 space-x-2">
+            <a href="{{ route('items.edit', $item) }}" 
+              class="text-[#4973B5] hover:text-[#2C5BA5]">編集</a>
 
-          @endif
+            <form action="{{ route('items.destroy', $item) }}" method="POST" 
+                  onsubmit="return confirm('削除しますか？');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-[#EE2E48] hover:text-[#D52B3F]">削除</button>
+            </form>
+        </div>
+
         </div>
       </div>
 

@@ -123,14 +123,34 @@ public function index(Request $request)
      */
     public function update(Request $request, Item $item)
     {
-        $request->validate([
-            'item' => 'required|max:255',
+        $validated = $request->validate([
+            'item' => 'required|string|max:255',
+            'quantity' => 'required|integer|min:1',
+            'expiration_year' => 'nullable|integer',
+            'expiration_month' => 'nullable|integer',
+            'expiration_day' => 'nullable|integer',
         ]);
 
-        $item->update($request->only('item'));
-
-        return redirect()->route('items.show', $item);
+    if ($request->filled(['expiration_year', 'expiration_month', 'expiration_day'])) {
+        $expirationDate = sprintf(
+            '%04d-%02d-%02d',
+            $request->expiration_year,
+            $request->expiration_month,
+            $request->expiration_day
+        );
+        $item->expiration_date = $expirationDate;
+    } else {
+        $item->expiration_date = null;
     }
+
+    $item->item = $validated['item'];
+    $item->quantity = $validated['quantity'];
+
+    $item->save();
+
+    return redirect()->route('items.index')->with('success', '更新しました。');
+}
+
 
     /**
      * Remove the specified resource from storage.

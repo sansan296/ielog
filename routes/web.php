@@ -37,7 +37,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth'])->group(function () {
     // 在庫
     Route::resource('items', ItemController::class);
     Route::resource('items.memos', MemoController::class);
