@@ -9,25 +9,25 @@
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8 space-y-8">
 
             {{-- 期限切れ --}}
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[#fdf4f4ff] overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-bold mb-4  text-[#EE2E48]">
-                        賞味期限切れの商品
+                        ▼賞味期限切れの商品
                     </h3>
                     @if($expiredItems->isEmpty())
                         <p class="text-gray-500">期限切れの商品はありません。</p>
                     @else
                         <table class="w-full border-collapse">
                             <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="px-4 py-2 text-center">商品名</th>
-                                    <th class="px-4 py-2 text-center">賞味期限</th>
-                                    <th class="px-4 py-2 text-center">個数</th>
+                                <tr class="bg-white">
+                                    <th class="px-4 py-2">商品名</th>
+                                    <th class="px-4 py-2">賞味期限</th>
+                                    <th class="px-4 py-2">個数</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($expiredItems as $item)
-                                    <tr class="border-b border-gray-200">
+                                    <tr class="border-b border-gray-400">
                                    
                                         <td class="px-4 py-2 text-center text-[#EE2E48]">
                                             {{ $item->item }}
@@ -52,17 +52,17 @@
             </div>
 
             {{-- 期限間近 --}}
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-[#fdf4f4ff] overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h3 class="text-lg font-bold mb-4  text-[#2C5BA5]">
-                        期限が1週間以内の商品
+                    <h3 class="text-lg font-bold mb-4  text-gray-600">
+                        ▼期限が1週間以内の商品
                     </h3>
                     @if($nearExpiredItems->isEmpty())
                         <p class="text-center text-gray-500">期限間近の商品はありません。</p>
                     @else
                         <table class="w-full border-collapse">
                             <thead>
-                                <tr class="bg-gray-100">
+                                <tr class="bg-white">
                                     <th class="px-4 py-2 text-center">商品名</th>
                                     <th class="px-4 py-2 text-center">賞味期限</th>
                                     <th class="px-4 py-2 text-center">個数</th>
@@ -70,7 +70,7 @@
                             </thead>
                             <tbody>
                                 @foreach($nearExpiredItems as $item)
-                                    <tr class="border-b border-gray-200">
+                                    <tr class="border-b border-gray-400">
                                         <td class="px-4 py-2 text-center">{{ $item->item }}</td>
                                         <td class="px-4 py-2 text-center">
                                             {{ $item->expiration_date->format('Y/m/d') }}
@@ -85,15 +85,15 @@
             </div>
 
         {{-- メモ一覧 --}}
-        <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-lg font-semibold mb-3 text-blue-600">メモ一覧</h3>
+        <div class="bg-[#fdf4f4ff] p-6 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-3 text-gray-600">▼メモ一覧</h3>
 
             @if($memos->isEmpty())
                 <p class="text-gray-500">メモは登録されていません。</p>
             @else
                 <ul class="space-y-4">
                     @foreach($memos as $memo)
-                        <li class="border-b pb-2">
+                        <li class="border-b border-gray-400 pb-2">
                             <p class="font-semibold text-gray-800">
                                 商品名：{{ $memo->item->item }}
                             </p>
@@ -112,7 +112,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" 
-                                        class="text-red-500 hover:text-red-700 text-sm">
+                                        class="text-red-500 hover:text-red-600 text-sm">
                                     削除
                                 </button>
                             </form>

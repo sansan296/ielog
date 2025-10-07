@@ -102,8 +102,21 @@ public function index(Request $request)
      */
     public function edit(Item $item)
     {
-        return view('items.edit', compact('item'));
+        if (!empty($item->expiration_date)) {
+            $expiration = [
+                'year' => date('Y', strtotime($item->expiration_date)),
+                'month' => date('m', strtotime($item->expiration_date)),
+                'day' => date('d', strtotime($item->expiration_date)),
+            ];
+        } else {
+            $expiration = ['year' => '', 'month' => '', 'day' => ''];
+        }
+
+        $quantity = $item->quantity ?? 0;
+
+        return view('items.edit', compact('item', 'expiration', 'quantity'));
     }
+
 
     /**
      * Update the specified resource in storage.

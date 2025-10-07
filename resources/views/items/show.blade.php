@@ -7,11 +7,11 @@
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="bg-[#9cbcf0ff] overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900">
           
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="p-4 bg-[#FFF0E6] rounded-lg shadow">
+      <div class="p-4 bg-[#fdf4f4ff] rounded-lg shadow">
           <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">
@@ -54,7 +54,7 @@
       </div>
 
         <div class="mt-4">
-            <a href="{{ route('items.memos.create', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">メモを追加</a>
+            <a href="{{ route('items.memos.create', $item) }}" class="text-white mr-2">メモを追加</a>
           </div>
           
           <div class="mt-4">

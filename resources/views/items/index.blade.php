@@ -22,7 +22,7 @@
 
   <!-- 在庫で作れる料理を表示ボタン -->
   <a href="{{ route('recipes.index') }}" 
-     class="px-6 py-2 bg-[#7094CC] text-white font-semibold rounded-lg hover:bg-[#4973B5] transition">
+     class="px-6 py-2 bg-[#FF9A3C] text-white font-semibold rounded-lg hover:bg-[#4973B5] transition">
      在庫で作れる料理を表示
   </a>
   </form>
@@ -39,11 +39,11 @@
 
 
     <!-- 一覧 -->
-    <div class="bg-[#FFA584] overflow-hidden shadow-sm sm:rounded-lg p-6">
+    <div class="bg-[#9cbcf0ff] overflow-hidden shadow-sm sm:rounded-lg p-6">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
-          <div class="p-4 bg-white rounded-lg shadow">
+          <div class="p-4 bg-[#fdf4f4ff] rounded-lg shadow">
             <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">
