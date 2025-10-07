@@ -7,7 +7,7 @@
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-[#fdf4f4ff] overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         <div class="p-6 text-gray-900">
           <a href="{{ route('items.show', $item) }}" class="text-blue-500 hover:text-blue-700 mr-2">詳細に戻る</a>
           <form method="POST" action="{{ route('items.update', $item) }}">

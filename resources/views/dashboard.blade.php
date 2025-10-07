@@ -9,7 +9,7 @@
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8 space-y-8">
 
             {{-- 期限切れ --}}
-            <div class="bg-[#fdf4f4ff] overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-bold mb-4  text-[#EE2E48]">
                         ▼賞味期限切れの商品
@@ -52,7 +52,7 @@
             </div>
 
             {{-- 期限間近 --}}
-            <div class="bg-[#fdf4f4ff] overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-bold mb-4  text-gray-600">
                         ▼期限が1週間以内の商品
@@ -85,7 +85,7 @@
             </div>
 
         {{-- メモ一覧 --}}
-        <div class="bg-[#fdf4f4ff] p-6 rounded-lg shadow">
+        <div class="bg-white p-6 rounded-lg shadow">
             <h3 class="text-lg font-semibold mb-3 text-gray-600">▼メモ一覧</h3>
 
             @if($memos->isEmpty())

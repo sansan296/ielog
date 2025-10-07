@@ -43,7 +43,7 @@
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($items as $item)
-          <div class="p-4 bg-[#fdf4f4ff] rounded-lg shadow">
+          <div class="p-4 bg-white rounded-lg shadow">
             <p class="text-lg font-semibold">{{ $item->item }}</p>
             
             <p class="text-gray-800 text-base">

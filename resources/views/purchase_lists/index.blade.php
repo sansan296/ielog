@@ -8,7 +8,7 @@
   <div class="py-8 max-w-4xl mx-auto px-4">
 
     <!-- 登録フォーム -->
-    <form method="POST" action="{{ route('purchase_lists.store') }}" class="mb-6 bg-[#fdf4f4ff] p-4 rounded-lg shadow">
+    <form method="POST" action="{{ route('purchase_lists.store') }}" class="mb-6 bg-white p-4 rounded-lg shadow">
       @csrf
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <input type="text" name="item" placeholder="商品名" required
@@ -26,7 +26,7 @@
     </form>
 
     <!-- リスト一覧 -->
-    <div class="bg-[#fdf4f4ff] p-4 rounded-lg shadow">
+    <div class="bg-white p-4 rounded-lg shadow">
       @if($lists->isEmpty())
         <p class="text-center text-gray-800">購入予定のものはありません。</p>
       @else
