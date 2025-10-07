@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\PurchaseListController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,5 +53,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/purchase-lists', [PurchaseListController::class, 'store'])->name('purchase_lists.store');
     Route::delete('/purchase-lists/{purchaseList}', [PurchaseListController::class, 'destroy'])->name('purchase_lists.destroy');
 });
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
+
 
 require __DIR__.'/auth.php';
