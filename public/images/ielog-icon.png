@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+  <!-- 背景グラデーション -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4973B5"/>
+      <stop offset="50%" stop-color="#4FC3A1"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="512" height="512" rx="64" fill="url(#grad)"/>
+
+  <!-- 斜めテキスト -->
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    font-family="Poppins, sans-serif"
+    font-size="100"
+    font-weight="bold"
+    fill="#FFFFFF"
+    transform="rotate(-15 256 256)">
+    IeLog
+  </text>
+</svg>
