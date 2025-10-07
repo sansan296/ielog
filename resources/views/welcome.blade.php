@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link rel="icon" href="{{ asset('images/ielog-icon.svg') }}" type="image/svg">
         <title>{{ config('app.name', 'IeLog') }}</title>
 
         <!-- Fonts -->
@@ -21,7 +22,7 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-[#FDFDFC] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+    <body class="bg-[#fdf4f4ff] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
         
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
@@ -51,7 +52,7 @@
  
                 <div class="bg-[#ffffff] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
                     {{-- IeLog Logo --}}
-                        <img src="{{ asset('images/ielog-login.svg') }}" alt="IeLog アイコン" class="mx-auto w-32 h-32">
+                        <img src="{{ asset('images/ielog-login.svg') }}" alt="IeLog アイコン" class="mx-auto w-400 h-100">
                 </div>
             </main>
         </div>
