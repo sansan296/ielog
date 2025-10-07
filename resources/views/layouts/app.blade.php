@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="icon" href="{{ asset('images/ielog-icon.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset('images/ielog-icon.svg') }}" type="image/svg">
         <title>{{ config('app.name', 'IeLog') }}</title>
 
         <!-- Fonts -->
