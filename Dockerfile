@@ -1,4 +1,4 @@
-# ① PHP 8.2 の公式イメージをベースにする
+# ① PHP 8.2 の公式イメージをベースにする 
 FROM php:8.2-fpm
 
 # ② 必要なライブラリ・拡張機能をインストール
@@ -24,11 +24,14 @@ COPY . .
 
 # ⑥ 依存関係をインストール＆ビルド
 RUN composer install --no-dev --optimize-autoloader
-RUN php artisan key:generate
+# ⚠️ key:generate は削除
 RUN npm install && npm run build
 
-# ⑦ ポートを公開
+# ⑦ パーミッションの修正（重要）
+RUN chmod -R 775 storage bootstrap/cache
+
+# ⑧ ポートを公開
 EXPOSE 8000
 
-# ⑧ アプリケーションを起動
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# ⑨ アプリケーションを起動（ここで key:generate 実行）
+CMD php artisan key:generate --force && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
